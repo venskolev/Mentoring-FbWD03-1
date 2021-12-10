@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
@@ -8,37 +7,34 @@
 	<script src="https://unpkg.com/vue@next"></script>
 	<title>Vue 3.0</title>
 	<style>
-		.output {
-			background-color: #eee;
+		div.output {
+			display: flex;
+		}
+		div.box {
+			background-color: yellow;
+			margin: 0 10px 10px 0;
 			padding: 10px;
-			margin: 20px;
-			border: 1px solid #ccc;
+			border: 1px solid navy;
 			border-radius: 5px;
-			font-family: 'Courier New', Courier, monospace;
-			color: brown;
 		}
 	</style>
 </head>
-
 <body>
 	<div id="app">
-		<div class="output" v-html="output"></div>
+		<div class="output"
+			 v-html="output">
+		</div>
 	</div>
 	<script>
 		const app = Vue.createApp({
 			data() {
 				return {
-					output: 'nnn'
+					output: ''
 				};
 			},
 			methods: {
 				initialize() {
-					let r = '';
-
-					// foreach
-					[1,2,3,4,5,6,7,8,9,10].forEach(num => r += `<div>${num}</div>`);
-					this.output = r;
-					
+					this.output = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => `<div class="box">${num}</div>`).join('');
 				}
 			}
 		});
@@ -46,5 +42,4 @@
 		vm.initialize();
 	</script>
 </body>
-
 </html>
