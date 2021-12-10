@@ -25,7 +25,7 @@
 <body>
     <div class="f-box">
         <select class="rank">
-            <option value="1">1</option>
+            <option value=""></option>
         </select>
         <div class="stars"></div>
     </div>
@@ -45,7 +45,7 @@
 
         window.onload = () => {
         updateStars();
-        for (let x = 2; x <= 10; x++) {
+        for (let x = 1; x <= 10; x++) {
             const option = new Option();
             option.value = x;
             option.text = String(x);
