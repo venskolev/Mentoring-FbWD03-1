@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0">
+	<script src="https://unpkg.com/vue@next"></script>
+	<title>Vue 3.0</title>
+	<style>
+		.output {
+			background-color: #eee;
+			padding: 10px;
+			margin: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-family: 'Courier New', Courier, monospace;
+			color: brown;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<div class="output" v-html="output"></div>
+	</div>
+	<script>
+		const app = Vue.createApp({
+			data() {
+				return {
+					output: 'nnn'
+				};
+			},
+			methods: {
+				initialize() {
+					let r = '';
+
+					// foreach
+					[1,2,3,4,5,6,7,8,9,10].forEach(num => r += `<div>${num}</div>`);
+					this.output = r;
+					
+				}
+			}
+		});
+		const vm = app.mount('#app');
+		vm.initialize();
+	</script>
+</body>
+
+</html>

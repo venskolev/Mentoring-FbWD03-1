@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"
+		  type="text/css"
+		  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<title>dropdown</title>
+	<style>
+		body {
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+		}
+
+		.rankDropdown {
+			display: flex;
+		}
+
+		.stars {
+			margin: 0 0 0 5px;
+			color: goldenrod;
+			font-size: 1.3rem;
+		}
+
+		.stars i {
+			margin: 0 0 0 2px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="rankDropdown">
+		<select class="rank">
+		</select>
+		<div class="stars"></div>
+	</div>
+
+	<script>
+		const rankElem = document.querySelector('.rank');
+		const starsElem = document.querySelector('.stars');
+
+		const updateStars = () => {
+			starsElem.innerHTML = '<i class="fa fa-star" aria-hidden="true"></i>'.repeat(rankElem.value);
+		}
+
+		rankElem.onchange = (e) => {
+			updateStars();
+		};
+
+		window.onload = () => {
+			updateStars();
+
+			for (let x = 1; x <= 10; x++) {
+				const option = new Option();
+				option.value = x;
+				option.text = String(x);
+				rankElem.options.add(option);
+			}
+		} 
+	</script>
+
+</body>
+</html>
