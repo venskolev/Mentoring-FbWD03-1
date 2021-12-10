@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/266eebd455.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .f-box {
+            display: flex;
+        }
+        .stars {
+            margin: 0 0 0 5px;
+            color: goldenrod;
+            font-size: 1.3rem;
+        }
+        .stars i {
+            margin: 0 0 0 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="f-box">
+        <select class="rank">
+            <option value="1">1</option>
+        </select>
+        <div class="stars"></div>
+    </div>
+    <script>
+        const rankElem = document.querySelector('.rank');
+        const starsElem = document.querySelector('.stars');
+
+
+        const updateStars = () => {
+            starsElem.innerHTML = `<i class="fas fa-star"></i>` .repeat(rankElem.value);// `${rankElem.value} stars will go here`;
+        }
+
+        starsElem.innerHTML = `stars will go here`;
+        rankElem.onchange = () => {
+            updateStars();
+        }
+
+        window.onload = () => {
+        updateStars();
+        for (let x = 1; x <= 10; x++) {
+            const option = new Option();
+            option.value = x;
+            option.text = String(x);
+            rankElem.options.add(option);
+        }
+    }
+    </script>
+</body>
+
+</html>
